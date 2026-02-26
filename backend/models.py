@@ -12,6 +12,7 @@ class Job(Base):
     link = Column(String, nullable=True)
     status = Column(String, default="Yeni")  # Yeni, Başvuruldu, Reddedildi, Mülakat
     score = Column(Integer, nullable=True) # 0-100
+    motivation_letter = Column(Text, nullable=True)
     summary_tr = Column(Text, nullable=True)
     language_reqs = Column(String, nullable=True)
     location = Column(String, nullable=True)

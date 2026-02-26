@@ -26,6 +26,7 @@ class Job(JobBase):
     id: int
     status: str
     score: Optional[int] = None
+    motivation_letter: Optional[str] = None
     summary_tr: Optional[str] = None
     language_reqs: Optional[str] = None
     location: Optional[str] = None

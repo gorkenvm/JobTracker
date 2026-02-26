@@ -101,7 +101,8 @@ def generate_motivation_letter(job_desc: str, cv_text: str, language: str, draft
     
     CRITICAL RULE 1: The entire letter MUST be written in {lang_name}. Do NOT mix languages, even if the CV or Job Description is in a different language.
     CRITICAL RULE 2: Output ONLY the plain text of the letter. Do NOT use markdown.
-    CRITICAL RULE 3: ABSOLUTELY NO MARKDOWN FORMATTING. Do not use asterisks (**), hashtags (#), or bold tags. Output ONLY raw, unformatted plain text. Provide generic standard placeholders like "Max Mustermann" or "Jane Doe" if the name is missing, but do NOT use brackets like [Ihr Name].
+    CRITICAL RULE 3: ABSOLUTELY NO MARKDOWN FORMATTING. Do not use asterisks (**), hashtags (#), or bold tags. Output ONLY raw, unformatted plain text.
+    CRITICAL RULE 4: If a SAMPLE LETTER is provided below, YOU MUST EXACTLY COPY the Name, Address, Email, and Phone number from the sample letter and use them as the applicant's details. DO NOT change or invent personal contact information.
     
     --- JOB DESCRIPTION ---
     {job_desc}

@@ -7,7 +7,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 export default function JobCard({ job, onStatusChange, onDelete, provider, apiKey, modelName, downloadPath }) {
     const [draft, setDraft] = useState('');
     const [language, setLanguage] = useState('EN');
-    const [letter, setLetter] = useState('');
+    const [letter, setLetter] = useState(job.motivation_letter || '');
     const [generating, setGenerating] = useState(false);
     const [exporting, setExporting] = useState(false);
     const [expanded, setExpanded] = useState(false);
@@ -241,6 +241,13 @@ export default function JobCard({ job, onStatusChange, onDelete, provider, apiKe
                     <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
                         <p className="font-extrabold text-slate-800 mb-4 text-sm">{t('modLetterStudio')}</p>
 
+                        <div className="bg-white p-5 rounded-2xl border border-gray-100 mb-5 shadow-sm">
+                            <h4 className="font-extrabold text-slate-800 mb-2 text-sm">{t('jobDescription') || "İş Tanımı"}</h4>
+                            <div className="text-gray-700 text-sm whitespace-pre-wrap max-h-60 overflow-y-auto pr-2 custom-scrollbar">
+                                {job.description || t('notSpecified')}
+                            </div>
+                        </div>
+
                         <div className="mb-4">
                             <label className="block text-xs font-semibold text-slate-700 mb-1.5">{provider} {t('providerModel')}</label>
                             <select
@@ -264,12 +271,12 @@ export default function JobCard({ job, onStatusChange, onDelete, provider, apiKe
                             {generating ? t('generating') : t('createMotivation')}
                         </button>
 
-                        {letter && (
+                        {(letter || job.motivation_letter) && (
                             <div className="mt-5 animate-in fade-in slide-in-from-top-2">
                                 <textarea
-                                    value={letter}
+                                    value={letter || job.motivation_letter || ''}
                                     onChange={e => setLetter(e.target.value)}
-                                    rows="10"
+                                    rows="15"
                                     className="w-full border border-gray-200 bg-white focus:ring-2 focus:ring-indigo-500 font-sans outline-none rounded-xl p-5 text-sm mb-4 text-gray-700 font-medium leading-relaxed shadow-sm transition-shadow"
                                 ></textarea>
 

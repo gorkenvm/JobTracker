@@ -155,6 +155,10 @@ def generate_letter(req: schemas.LetterRequest, db: Session = Depends(get_db)):
         sample_letter_text=sample_content
     )
     
+    db_job.motivation_letter = letter_text
+    db.commit()
+    db.refresh(db_job)
+    
     return {"letter": letter_text}
 
 @app.post("/export/letter")
