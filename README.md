@@ -21,8 +21,34 @@ The frontend is built for a fast, responsive, and modern user experience.
 The backend provides robust data management and integrates with various AI models.
 * **Python 3**
 * **FastAPI & Uvicorn** (for a high-performance, asynchronous RESTful API)
-* **SQLAlchemy & PostgreSQL** (for reliable relational database management)
+* **SQLAlchemy & SQLite** (for reliable relational database management without complex setup)
 * **Pydantic** (for strict data validation)
 * **Python-dotenv** (for environment variable management)
 * **OpenAI & Google Generative AI SDKs** (for LLM integration)
 * **Python-docx & pdfkit** (for exporting generated letters to standardized document formats)
+
+## Getting Started (Automated Installation)
+
+We have created automated startup scripts so you don't need to manually install dependencies or configure environments.
+
+### Requirements:
+* **Python 3.x** installed and added to PATH.
+* **Node.js** installed and added to PATH.
+
+### For Windows Users:
+1. Double click on `run-windows.bat` or run it from the command line:
+   ```cmd
+   .\run-windows.bat
+   ```
+2. The script will automatically create a Python virtual environment, install all backend requirements, install frontend Node modules, and start both the backend FastAPI server and the frontend React application.
+
+### For Mac/Linux Users:
+1. Make the script executable and run it:
+   ```bash
+   chmod +x run-mac-linux.sh
+   ./run-mac-linux.sh
+   ```
+2. The script will automatically handle all virtual environment creations, module installations, and start both servers.
+
+*Backend API will run at `http://localhost:8000`*
+*Frontend UI will run at `http://localhost:5173`*

@@ -5,12 +5,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# We expect a DATABASE_URL in the .env or use a default local Postgres URL
+# Use a local SQLite database for simplicity
 SQLALCHEMY_DATABASE_URL = os.getenv(
-    "DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/postgres"
+    "DATABASE_URL", "sqlite:///./jobtracker.db"
 )
 
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+# check_same_thread=False is needed for SQLite to work with FastAPI
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
+)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
