@@ -8,3 +8,4 @@ google-generativeai
 python-docx
 pdfkit
 python-multipart
+anthropic
