@@ -76,3 +76,23 @@ export const exportLetter = async (letterText, companyName, downloadPath) => {
     });
     return res.data;
 };
+
+export const getApifyConfig = async () => {
+    const res = await axios.get(`${API_URL}/apify/config`);
+    return res.data;
+};
+
+export const saveApifyConfig = async (config) => {
+    const res = await axios.post(`${API_URL}/apify/config`, config);
+    return res.data;
+};
+
+export const apifyFetchNow = async () => {
+    const res = await axios.post(`${API_URL}/apify/fetch`, {});
+    return res.data;
+};
+
+export const apifyFetchSingleUrl = async (url) => {
+    const res = await axios.post(`${API_URL}/apify/fetch-url`, { url }, { timeout: 360000 });
+    return res.data;
+};

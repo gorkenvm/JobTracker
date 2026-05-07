@@ -32,3 +32,11 @@ __pycache__/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Sensitive / personal data — never commit
+backend/apify_config.json
+backend/cv.md
+backend/sample.txt
+
+# Claude internal
+.claude/

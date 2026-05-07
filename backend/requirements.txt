@@ -9,3 +9,6 @@ python-docx
 pdfkit
 python-multipart
 anthropic
+psycopg2-binary
+apscheduler
+requests
